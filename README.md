@@ -1,6 +1,6 @@
 # Fairseq Listen, Attend and Spell
-A Fairseq implementation of Listen, Attend and Spell (LAS), an End-to-End ASR framework. This repository follows the architecture proposed in the [Listen, Attend and Spell (William Chan et al., 2016)](https://arxiv.org/abs/1508.01211), but some modifications were added to improve performance. I used fairseq because fairseq provides several conveniences such as training on multi-GPU, beam-search decoding, and more. There is already an [asr example](https://github.com/pytorch/fairseq/tree/master/examples/speech_recognition) in fairseq, but there is no script that implements LAS architecture. 
-So I created a LAS architecture and compared it to the results of [Transformer-based model](https://github.com/pytorch/fairseq/tree/master/examples/speech_recognition).  
+A Fairseq implementation of Listen, Attend and Spell (LAS), an End-to-End ASR framework. This repository follows the architecture proposed in the [Listen, Attend and Spell (William Chan et al., 2016)](https://arxiv.org/abs/1508.01211), but some modifications were added to improve performance. I used fairseq because fairseq provides several conveniences such as training on multi-GPU, beam-search decoding, and more. There is already an [speech recognition example](https://github.com/pytorch/fairseq/tree/master/examples/speech_recognition) in fairseq, but there is no script that implements LAS architecture. 
+So I created a LAS architecture and compared it to the results of [transformer-based model](https://github.com/pytorch/fairseq/tree/master/examples/speech_recognition).  
   
 ## Additional dependencies  
 On top of main fairseq dependencies there are couple more additional requirements.  
@@ -8,7 +8,7 @@ On top of main fairseq dependencies there are couple more additional requirement
 2. [sentencepiece](https://github.com/google/sentencepiece) is required in order to create dataset with word-piece targets.    
 3. [wav2letter](https://github.com/facebookresearch/wav2letter) is required for decoding. To install wav2letter, please check [this page](https://github.com/sooftware/Fairseq-Listen-Attend-Spell#Requirements-and-Installation)  
 4. [tensorboard](https://www.tensorflow.org/tensorboard?hl=ko) is required in order to visualize training.
-5. [Sclite](http://www1.icsi.berkeley.edu/Speech/docs/sctk-1.2/sclite.htm#sclite_name_0) is used to measure WER. Sclite can be downloaded and installed from source from sctk package here. Training and inference doesn't require Sclite dependency.  
+5. [sclite](http://www1.icsi.berkeley.edu/Speech/docs/sctk-1.2/sclite.htm#sclite_name_0) is used to measure WER. Sclite can be downloaded and installed from source from sctk package here. Training and inference doesn't require Sclite dependency.  
     
 ## Preparing librispeech data  
 ```
