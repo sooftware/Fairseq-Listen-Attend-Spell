@@ -1,14 +1,14 @@
 # Fairseq-Listen-Attend-Spell
-A Fairseq implementation of Listen, Attend and Spell (LAS), an End-to-End ASR framework. LAS architecture described in 
-[Listen, Attend and Spell (William Chan etal., 2016)](https://arxiv.org/abs/1508.01211). Fairseq provides several conveniences such as training on multi-GPU, decoding speed, and more.
-There is already an [asr example](https://github.com/pytorch/fairseq/tree/master/examples/speech_recognition) in fairseq, but there is no script that implements LAS, so I made it.  
+A Fairseq implementation of Listen, Attend and Spell (LAS), an End-to-End ASR framework. This repository follows the architecture proposed in the [Listen, Attend and Spell (William Chan et al., 2016)](https://arxiv.org/abs/1508.01211), but some modifications were added to improve performance. I used fairseq becaus fairseq provides several conveniences such as training on multi-GPU, beam-search decoding, and more. There is already an [asr example](https://github.com/pytorch/fairseq/tree/master/examples/speech_recognition) in fairseq, but there is no script that implements LAS architecture. 
+So I created a Listen, Attend and Spell architecture and compared it to the results of [fairseq-example](https://github.com/pytorch/fairseq/tree/master/examples/speech_recognition).  
   
 ## Additional dependencies  
 On top of main fairseq dependencies there are couple more additional requirements.  
 1. Please follow the instructions to install [torchaudio](https://github.com/pytorch/audio). This is required to compute audio fbank features.  
 2. [Sclite](http://www1.icsi.berkeley.edu/Speech/docs/sctk-1.2/sclite.htm#sclite_name_0) is used to measure WER. Sclite can be downloaded and installed from source from sctk package here. Training and inference doesn't require Sclite dependency.  
-3. [sentencepiece](https://github.com/google/sentencepiece) is required in order to create dataset with word-piece targets.  
-4. [tensorboard](https://www.tensorflow.org/tensorboard?hl=ko) is required in order to visualize training.
+3. [sentencepiece](https://github.com/google/sentencepiece) is required in order to create dataset with word-piece targets.    
+4. [wav2letter](https://github.com/facebookresearch/wav2letter) is required for decoding. To install wav2letter, please check [this page](https://github.com/sooftware/Fairseq-Listen-Attend-Spell#Requirements-and-Installation)  
+5. [tensorboard](https://www.tensorflow.org/tensorboard?hl=ko) is required in order to visualize training.
     
 ## Preparing librispeech data  
 ```
@@ -29,9 +29,8 @@ python fairseq_las/infer.py $DIR_FOR_PREPROCESSED_DATA --task librispeech_task -
 ## Requirements and Installation
   
 * **For decoding** Install wav2letter component  
-  
-In decoding, We use [wav2letter](https://github.com/facebookresearch/wav2letter) toolkit.  
-To quickly summarize the instructions: first, install [CUDA](https://developer.nvidia.com/cuda-downloads). Then follow these steps:  
+> In decoding, We use [wav2letter](https://github.com/facebookresearch/wav2letter) toolkit.  
+> To quickly summarize the instructions: first, install [CUDA](https://developer.nvidia.com/cuda-downloads). Then follow these steps:  
 ```
 # additional prerequisites - use equivalents for your distro
 sudo apt-get install build-essential cmake libatlas-base-dev libfftw3-dev liblzma-dev libbz2-dev libzstd-dev
@@ -76,3 +75,7 @@ pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cud
   
 ※ Comparison criterion is WER (Word Error Rate)  
 ※ The result of VGC-Transformer was obtained through Speech Recognition Example of fairseq
+  
+## Author  
+- Soohwan Kim [@sooftware](https://github.com/sooftware)
+- Contacts: kaki.brain@kakaobrain.com
