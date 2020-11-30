@@ -76,6 +76,10 @@ pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cud
 ※ Comparison criterion is WER (Word Error Rate)  
 ※ The result of VGC-Transformer was obtained through Speech Recognition Example of fairseq
   
+## Troubleshoots and Contributing
+If you have any questions, bug reports, and feature requests, please [open an issue](https://github.com/sooftware/Fairseq-Listen-Attend-Spell/issues) on Github.   
+I appreciate any kind of feedback or contribution.  Feel free to proceed with small issues like bug fixes, documentation improvement.  For major contributions and new features, please discuss with the collaborators in corresponding issues.  
+  
 ## Author  
 - Soohwan Kim [@sooftware](https://github.com/sooftware)
 - Contacts: kaki.brain@kakaobrain.com
