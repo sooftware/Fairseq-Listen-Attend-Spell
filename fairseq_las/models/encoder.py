@@ -3,8 +3,8 @@ from torch import Tensor
 from collections.abc import Iterable
 from typing import Optional
 from fairseq_las.models import DEFAULT_ENC_VGGBLOCK_CONFIG
-from examples.brainspeech.models.vgglas.modules import lstm
-from examples.brainspeech.models.vgglas.vggblock import VGGBlock
+from fairseq_las.models.modules import lstm
+from fairseq_las.models.vggblock import VGGBlock
 from fairseq.models import FairseqEncoder
 from fairseq.modules import FairseqDropout
 

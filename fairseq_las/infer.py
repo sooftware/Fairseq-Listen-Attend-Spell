@@ -23,14 +23,8 @@ logger.setLevel(logging.INFO)
 
 def add_asr_eval_argument(parser):
     parser.add_argument("--ctc", action="store_true", help="decode a ctc model")
-    parser.add_argument("--rnnt", default=False, help="decode a rnnt model")
-    parser.add_argument("--kspmodel", default=None, help="sentence piece model")
-    parser.add_argument("--wfstlm", default=None, help="wfstlm on dictonary output units")
-    parser.add_argument("--rnnt_decoding_type", default="greedy",
-                        help="wfstlm on dictonary output units")
     parser.add_argument("--lm_weight", default=0.2,
                         help="weight for wfstlm while interpolating with neural score")
-    parser.add_argument("--rnnt_len_penalty", default=-0.5, help="rnnt length penalty on word level")
 
     return parser
 
@@ -193,11 +187,7 @@ def main(args):
 
     # Load ensemble
     logger.info("| loading model(s) from {}".format(args.path))
-    # models, _model_args = utils.load_ensemble_for_inference(
-    #      args.path.split(":"),
-    #      task,
-    #      model_arg_overrides=eval(args.model_overrides),  # noqa
-    # )
+
     models, criterions, _ = load_models_and_criterions(
         args.path,
         data_path=args.data,
@@ -244,13 +234,9 @@ def main(args):
             for i, sample_id in enumerate(sample['id'].tolist()):
                 speaker = task.dataset(args.gen_subset).speakers[int(sample_id)]
                 id = task.dataset(args.gen_subset).ids[int(sample_id)]
-                target_tokens = (
-                    utils.strip_pad(sample["target"][i, :], tgt_dict.pad()).int().cpu()
-                )
+                target_tokens = (utils.strip_pad(sample["target"][i, :], tgt_dict.pad()).int().cpu())
                 # Process top predictions
-                process_predictions(
-                    args, hypos[i], sp, tgt_dict, target_tokens, res_files, speaker, id
-                )
+                process_predictions(args, hypos[i], sp, tgt_dict, target_tokens, res_files, speaker, id)
 
             wps_meter.update(num_generated_tokens)
             t.log({"wps": round(wps_meter.avg)})

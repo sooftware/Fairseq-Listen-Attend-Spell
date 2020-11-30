@@ -11,7 +11,10 @@ from fairseq.modules import FairseqDropout, AdaptiveSoftmax
 
 
 class FairseqSpeller(FairseqIncrementalDecoder):
-    """LSTM decoder."""
+    """
+    Converts higher level features (from encoder) into output utterances
+    by specifying a probability distribution over sequences of characters.
+    """
     def __init__(
         self, dictionary, embed_dim=512, hidden_size=512, out_embed_dim=512,
         num_layers=1, dropout_in=0.1, dropout_out=0.1, attention=True,

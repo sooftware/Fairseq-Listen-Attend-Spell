@@ -1,14 +1,17 @@
-from examples.brainspeech.models.vgglas import DEFAULT_ENC_VGGBLOCK_CONFIG, DEFAULT_MAX_TARGET_POSITIONS
-from examples.brainspeech.models.vgglas.encoder import BrainLSTMEncoder
-from examples.brainspeech.models.vgglas.decoder import BrainLSTMDecoder
+from fairseq_las.models.encoder import FairseqListener
+from fairseq_las.models.decoder import FairseqSpeller
 from torch import Tensor
+from fairseq import options
+from typing import Optional, Dict
 from fairseq.models import (
     register_model,
     register_model_architecture,
     FairseqEncoderDecoderModel
 )
-from fairseq import options
-from typing import Optional, Dict
+from fairseq_las.models import (
+    DEFAULT_ENC_VGGBLOCK_CONFIG,
+    DEFAULT_MAX_TARGET_POSITIONS
+)
 
 
 @register_model("fairseq_las")
@@ -58,7 +61,7 @@ class FairseqListenAttendSpell(FairseqEncoderDecoderModel):
 
         max_target_positions = getattr(args, 'max_target_positions', DEFAULT_MAX_TARGET_POSITIONS)
 
-        encoder = BrainLSTMEncoder(
+        encoder = FairseqListener(
             dictionary=task.target_dict,
             input_dim=args.encoder_input_dim,
             hidden_size=args.encoder_hidden_size,
@@ -67,7 +70,7 @@ class FairseqListenAttendSpell(FairseqEncoderDecoderModel):
             dropout_out=args.encoder_dropout_out,
             bidirectional=args.encoder_bidirectional
         )
-        decoder = BrainLSTMDecoder(
+        decoder = FairseqSpeller(
             dictionary=task.target_dictionary,
             embed_dim=args.decoder_embed_dim,
             hidden_size=args.decoder_hidden_size,
@@ -102,7 +105,7 @@ class FairseqListenAttendSpell(FairseqEncoderDecoderModel):
         return decoder_out
 
 
-@register_model_architecture('brain_las', 'brain_las_1')
+@register_model_architecture('fairseq_las', 'fairseq_las_1')
 def base_architecture(args):
     args.encoder_input_dim = getattr(args, 'encoder_input_dim', 80)
     args.encoder_hidden_size = getattr(args, 'encoder_hidden_size', 512)
@@ -125,7 +128,7 @@ def base_architecture(args):
     args.adaptive_softmax_cutoff = getattr(args, 'adaptive_softmax_cutoff', '10000,50000,200000')
 
 
-@register_model_architecture('brain_las', 'brain_las_2')
+@register_model_architecture('fairseq_las', 'fairseq_las_2')
 def base_architecture(args):
     args.encoder_input_dim = getattr(args, 'encoder_input_dim', 80)
     args.encoder_hidden_size = getattr(args, 'encoder_hidden_size', 512)

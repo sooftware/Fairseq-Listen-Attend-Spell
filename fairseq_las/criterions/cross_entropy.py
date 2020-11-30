@@ -11,7 +11,7 @@ from fairseq import utils
 from fairseq.criterions import FairseqCriterion, register_criterion
 
 
-@register_criterion("cross_entropy_acc")
+@register_criterion("cross_entropy_with_acc_loss")
 class CrossEntropyWithAccCriterion(FairseqCriterion):
     def __init__(self, task, sentence_avg):
         super().__init__(task)

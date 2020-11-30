@@ -34,7 +34,7 @@ try:
         LexiconDecoder,
         LexiconFreeDecoder,
     )
-except:
+except ImportError:
     warnings.warn(
         "wav2letter python bindings are required to use this functionality. "
         "Please install from https://github.com/facebookresearch/wav2letter/wiki/Python-bindings"

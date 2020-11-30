@@ -9,7 +9,7 @@ import re
 import sys
 from fairseq.data import Dictionary
 from fairseq.tasks import FairseqTask, register_task
-from examples.brainspeech.data import SpeechDataset
+from fairseq_las.data import SpeechDataset
 
 
 def parses_json(data_json_path, target_dict):
@@ -63,10 +63,8 @@ def parses_json(data_json_path, target_dict):
         return SpeechDataset(aud_paths, frame_sizes, target, target_dict, ids, speakers)
 
 
-@register_task("speech_recognition_task")
-class SpeechRecognitionTask(FairseqTask):
-    """ Task for training brainspeech """
-
+@register_task("librispeech_task")
+class LibriSpeechTask(FairseqTask):
     @staticmethod
     def add_args(parser):
         """Add task-specific arguments to the parser."""

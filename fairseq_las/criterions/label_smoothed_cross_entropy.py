@@ -33,8 +33,8 @@ def label_smoothed_nll_loss(lprobs, target, epsilon, ignore_index=None, reduce=T
     return loss
 
 
-@register_criterion('label_smoothed_cross_entropy')
-class LabelSmoothedCrossEntropyLoss(FairseqCriterion):
+@register_criterion('label_smoothed_cross_entropy_with_acc')
+class LabelSmoothedCrossEntropyWithAccLoss(FairseqCriterion):
     def __init__(self, task, sentence_avg):
         super().__init__(task)
         self.sentence_avg = sentence_avg
