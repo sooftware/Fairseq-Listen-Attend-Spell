@@ -28,6 +28,11 @@ python fairseq_las/infer.py $DIR_FOR_PREPROCESSED_DATA --task librispeech_task -
   
 ## Requirements and Installation
   
+* Install fairseq & python libraries
+```
+pip install -e .
+```
+  
 * **For decoding** Install wav2letter component  
 > In decoding, We use [wav2letter](https://github.com/facebookresearch/wav2letter) toolkit.  
 > To quickly summarize the instructions: first, install [CUDA](https://developer.nvidia.com/cuda-downloads). Then follow these steps:  
