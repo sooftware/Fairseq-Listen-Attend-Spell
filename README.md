@@ -1,4 +1,4 @@
-# Fairseq-Listen-Attend-Spell
+# Fairseq Listen, Attend and Spell
 A Fairseq implementation of Listen, Attend and Spell (LAS), an End-to-End ASR framework. This repository follows the architecture proposed in the [Listen, Attend and Spell (William Chan et al., 2016)](https://arxiv.org/abs/1508.01211), but some modifications were added to improve performance. I used fairseq becaus fairseq provides several conveniences such as training on multi-GPU, beam-search decoding, and more. There is already an [asr example](https://github.com/pytorch/fairseq/tree/master/examples/speech_recognition) in fairseq, but there is no script that implements LAS architecture. 
 So I created a Listen, Attend and Spell architecture and compared it to the results of [fairseq-example](https://github.com/pytorch/fairseq/tree/master/examples/speech_recognition).  
   
