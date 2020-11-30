@@ -29,6 +29,7 @@ python fairseq_las/infer.py $DIR_FOR_PREPROCESSED_DATA --task librispeech_task -
 ## Requirements and Installation
   
 * **For decoding** Install wav2letter component  
+  
 In decoding, We use [wav2letter](https://github.com/facebookresearch/wav2letter) toolkit.  
 To quickly summarize the instructions: first, install [CUDA](https://developer.nvidia.com/cuda-downloads). Then follow these steps:  
 ```
@@ -51,7 +52,7 @@ pip install torch packaging
 pip install -e .
 ```  
   
-### **For faster training** install NVIDIA's [apex](https://github.com/NVIDIA/apex) library:  
+* **For faster training** install NVIDIA's [apex](https://github.com/NVIDIA/apex) library:  
 ```
 git clone https://github.com/NVIDIA/apex
 cd apex
@@ -61,7 +62,12 @@ pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cud
 ```
   
 ## Results  
-<img src="https://github.com/sooftware/Fairseq-Listen-Attend-Spell/images/loss.PNG" height=270>  
+  
+### Training Loss Curve  
+<img src="https://github.com/sooftware/Fairseq-Listen-Attend-Spell/blob/main/images/loss.PNG" height=270>  
+  
+### Learning rate  
+<img src="https://github.com/sooftware/Fairseq-Listen-Attend-Spell/blob/main/images/lr.PNG" height=270>  
   
 |Model|LM|test-clean|test-other|    
 |--|:--:|:--:|:--:|      
@@ -69,4 +75,4 @@ pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cud
 |VGG-Transformer|-|5.8|14.1|      
   
 ※ Comparison criterion is WER (Word Error Rate)  
-※ VGG-Transformer is the result when I trained the model in fairseq-example
+※ The result of VGC-Transformer was obtained through Speech Recognition Example of fairseq
