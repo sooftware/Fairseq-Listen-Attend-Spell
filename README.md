@@ -5,10 +5,10 @@ So I created a Listen, Attend and Spell architecture and compared it to the resu
 ## Additional dependencies  
 On top of main fairseq dependencies there are couple more additional requirements.  
 1. Please follow the instructions to install [torchaudio](https://github.com/pytorch/audio). This is required to compute audio fbank features.  
-2. [Sclite](http://www1.icsi.berkeley.edu/Speech/docs/sctk-1.2/sclite.htm#sclite_name_0) is used to measure WER. Sclite can be downloaded and installed from source from sctk package here. Training and inference doesn't require Sclite dependency.  
-3. [sentencepiece](https://github.com/google/sentencepiece) is required in order to create dataset with word-piece targets.    
-4. [wav2letter](https://github.com/facebookresearch/wav2letter) is required for decoding. To install wav2letter, please check [this page](https://github.com/sooftware/Fairseq-Listen-Attend-Spell#Requirements-and-Installation)  
-5. [tensorboard](https://www.tensorflow.org/tensorboard?hl=ko) is required in order to visualize training.
+2. [sentencepiece](https://github.com/google/sentencepiece) is required in order to create dataset with word-piece targets.    
+3. [wav2letter](https://github.com/facebookresearch/wav2letter) is required for decoding. To install wav2letter, please check [this page](https://github.com/sooftware/Fairseq-Listen-Attend-Spell#Requirements-and-Installation)  
+4. [tensorboard](https://www.tensorflow.org/tensorboard?hl=ko) is required in order to visualize training.
+5. [Sclite](http://www1.icsi.berkeley.edu/Speech/docs/sctk-1.2/sclite.htm#sclite_name_0) is used to measure WER. Sclite can be downloaded and installed from source from sctk package here. Training and inference doesn't require Sclite dependency.  
     
 ## Preparing librispeech data  
 ```
