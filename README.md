@@ -79,7 +79,7 @@ pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cud
 |VGG-Transformer|-|5.8|14.1|      
   
 ※ Comparison criterion : WER (Word Error Rate)  
-※ Dataset : LibriSpeech 960h
+※ Dataset : LibriSpeech 960h   
 ※ The result of VGC-Transformer was obtained through Speech Recognition Example of fairseq
   
 ## Troubleshoots and Contributing
