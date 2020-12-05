@@ -78,12 +78,19 @@ pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cud
 |Listen, Attend and Spell|-|5.4|14.5|  
 |VGG-Transformer|-|5.8|14.1|      
   
-※ Comparison criterion is WER (Word Error Rate)  
+※ Comparison criterion : WER (Word Error Rate)  
+※ Dataset : LibriSpeech 960h
 ※ The result of VGC-Transformer was obtained through Speech Recognition Example of fairseq
   
 ## Troubleshoots and Contributing
 If you have any questions, bug reports, and feature requests, please [open an issue](https://github.com/sooftware/Fairseq-Listen-Attend-Spell/issues) on Github.   
 I appreciate any kind of feedback or contribution.  Feel free to proceed with small issues like bug fixes, documentation improvement.  For major contributions and new features, please discuss with the collaborators in corresponding issues.  
+  
+## Reference  
+  
+- [Listen, Attend and Spell (Willian Chan et al., 2015)](https://arxiv.org/pdf/1508.01211.pdf)  
+- [Transformers with convolutional context for ASR (Abdelrahman Mohamed et al., 2019)](https://arxiv.org/abs/1904.11660)  
+  
   
 ## Author  
 - Soohwan Kim [@sooftware](https://github.com/sooftware)
